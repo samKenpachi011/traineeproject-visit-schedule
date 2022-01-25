@@ -1,0 +1,2 @@
+import imp
+from .visit_schedules import traineeproject_visit_schedule
