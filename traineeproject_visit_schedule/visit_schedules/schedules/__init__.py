@@ -1,1 +1,2 @@
 from .schedule import traineeproject_enrollment
+from .schedule import traineeproject_schedule
