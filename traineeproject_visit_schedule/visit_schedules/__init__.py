@@ -1,2 +1,2 @@
-from .visit_schedule import traineeproject_visit_schedule
 from .schedule import traineeproject_schedule
+from .visit_schedule import traineeproject_visit_schedule

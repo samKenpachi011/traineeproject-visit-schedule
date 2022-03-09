@@ -1,6 +1,6 @@
 from edc_visit_schedule import FormsCollection, Crf
 
-crf = {}
+crfs = {}
 """
 -To create form collections for crfs that are needed on certain visits
 -create form group for prn :special forms that remind the user to fill them but not required
@@ -31,15 +31,11 @@ crfs_visit_3 = FormsCollection(
     name='visit_3'
 )
 
-crfs = {
+
+
+crfs.update({
     'initial':crfs_initial,
     'visit2':crfs_visit_2,
     'visit3':crfs_visit_3,
-    'prn':trainee_crfs_prn}
-
-# crf.update({
-#     'initial':crfs_initial,
-#     'visit2':crfs_visit_2,
-#     'visit3':crfs_visit_3,
-#     'prn':trainee_crfs_prn})
+    'prn':trainee_crfs_prn})
 
