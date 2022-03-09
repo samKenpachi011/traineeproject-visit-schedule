@@ -14,7 +14,7 @@ trainee_crfs_prn = FormsCollection(
     Crf(show_order=1, model='traineeproject_subject.demographic'),
     Crf(show_order=2, model='traineeproject_subject.education'),
     Crf(show_order=3, model='traineeproject_subject.communityengagement'),
-    name='crf_prn')
+    name='trainee_crf_prn')
 
 
 crfs_initial = FormsCollection(
@@ -31,9 +31,15 @@ crfs_visit_3 = FormsCollection(
     name='visit_3'
 )
 
-crf.update({
+crfs = {
     'initial':crfs_initial,
     'visit2':crfs_visit_2,
     'visit3':crfs_visit_3,
-    'prn':trainee_crfs_prn})
+    'prn':trainee_crfs_prn}
+
+# crf.update({
+#     'initial':crfs_initial,
+#     'visit2':crfs_visit_2,
+#     'visit3':crfs_visit_3,
+#     'prn':trainee_crfs_prn})
 
