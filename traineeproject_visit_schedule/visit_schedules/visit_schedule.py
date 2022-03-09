@@ -1,5 +1,6 @@
 from edc_visit_schedule import VisitSchedule, site_visit_schedules
-from .schedules import traineeproject_schedule
+from .schedule import traineeproject_schedule
+
 """
  Visit schedule takes in
         name verbose_name previous_visit_schedule

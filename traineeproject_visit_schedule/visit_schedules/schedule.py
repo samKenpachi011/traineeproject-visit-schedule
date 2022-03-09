@@ -1,21 +1,22 @@
 from dateutil.relativedelta import relativedelta
 from edc_visit_schedule import Schedule, Visit as BaseVisit
 
-from ..crfs_requisitions import crf
-from ..crfs_requisitions.requisitions import requisitions
-from ...constants import DAY1, DAY7, DAY14
+from .crfs import crf, trainee_crfs_prn
+from .requisions import requisitions
+from ..constants import DAY1, DAY7, DAY14
 
 class Visit(BaseVisit):
 
     def __init__(self, crfs_unscheduled=None, requisitions_unscheduled=None,
-                crfs_prn=None, requisitions_prn=None,
-                allow_unscheduled=None, **kwargs):
-                super().__init__(
-                    allow_unscheduled=True if allow_unscheduled is None else allow_unscheduled,
-                    crfs_unscheduled=crfs_unscheduled,
-                    requisitions_unscheduled=requisitions_unscheduled,
-                    cfrs_prn=crfs_prn or crf.get('crf_prn')               
-                )
+                 crfs_prn=None, requisitions_prn=None,
+                 allow_unscheduled=None, **kwargs):
+        super().__init__(
+            allow_unscheduled=True if allow_unscheduled is None else allow_unscheduled,
+            crfs_unscheduled=crfs_unscheduled,
+            requisitions_unscheduled=requisitions_unscheduled,
+            crfs_prn=trainee_crfs_prn or crfs_prn,
+            requisitions_prn=requisitions_prn,
+            **kwargs)
 
 traineeproject_schedule = Schedule(
     name='schedule',
@@ -23,7 +24,7 @@ traineeproject_schedule = Schedule(
     onschedule_model='traineeproject_subject.onschedule',
     offschedule_model='traineeproject_subject.offschedule',
     consent_model='traineeproject_subject.subjectconsent',
-    appointment_model='edc_appointment.appointment'
+    appointment_model='edc_appointment.appointment',
 
 )
 
@@ -61,6 +62,6 @@ visit2 = Visit(
     facility_name='5-day clinic'
 )
 
-traineeproject_schedule.add_visit(visit0)
-traineeproject_schedule.add_visit(visit1)
-traineeproject_schedule.add_visit(visit2)
+traineeproject_schedule.add_visit(visit=visit0)
+traineeproject_schedule.add_visit(visit=visit1)
+traineeproject_schedule.add_visit(visit=visit2)
